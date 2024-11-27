@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\CaborController;
+use App\Http\Controllers\AtletController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +69,15 @@ Route::group(['prefix' => 'cabor', 'controller' => CaborController::class], func
     Route::get('/{id}/edit', 'edit')->name('cabor.edit');
     Route::put('/{id}', 'update')->name('cabor.update');
     Route::delete('/delete/{id}', 'destroy')->name('cabor.destroy');
+});
+
+Route::group(['prefix' => 'atlet', 'controller' => AtletController::class], function () {
+    Route::get('/', 'index')->name('atlet.index');
+    Route::post('/list', 'list')->name('atlet.list');
+    Route::get('/create', 'create')->name('atlet.create');
+    Route::post('/', 'store')->name('atlet.store');
+    Route::get('/{id}', 'show')->name('atlet.show');
+    Route::get('/{id}/edit', 'edit')->name('atlet.edit');
+    Route::put('/{id}', 'update')->name('atlet.update');
+    Route::delete('/delete/{id}', 'destroy')->name('atlet.destroy');
 });

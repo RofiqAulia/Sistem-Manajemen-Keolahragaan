@@ -24,7 +24,7 @@
             <!-- Data Anggota Section -->
             <li class="nav-header">Data Manajemen Olahraga</li>
             <li class="nav-item">
-                <a href="#">
+                <a href="{{ route('atlet.index') }}" class="nav-link {{ (request()->routeIs('atlet.index')) ? 'active' : '' }}">
                     <i class="nav-icon fas fa-running"></i>
                     <p>Data Atlet</p>
                 </a>

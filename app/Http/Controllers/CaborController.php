@@ -10,20 +10,25 @@ use Yajra\DataTables\Facades\DataTables;
 
 class CaborController extends Controller
 {
-    public function index() 
+    public function index()
     {
         $breadcrumb = (object) [
-            'title' => 'Daftar cabor',
+            'title' => 'Daftar Cabor',
             'list' => ['Dashboard', 'Cabor']
         ];
-
+    
         $page = (object) [
-            'title' => 'Daftar Cabor yang terdaftar dalam sistem'
+            'title' => 'Daftar berita yang terdaftar dalam sistem'
         ];
-
-        $activeMenu = 'cabor';
-
-        return view('cabor.index', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+    
+        $activeMenu = 'cabor'; // Define your $activeMenu variable
+    
+        // Pass all necessary variables to the view
+        return view('cabor.index', [
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'activeMenu' => $activeMenu, // Make sure $activeMenu is passed to the view
+        ]);
     }
 
     public function list(Request $request)

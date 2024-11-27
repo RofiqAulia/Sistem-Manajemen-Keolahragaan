@@ -14,6 +14,7 @@ class CaborModel extends Model
     protected $primaryKey = 'id_cabor';
 
     protected $fillable = [
+        'id_cabor',
         'kode_cabor',
         'nama',
         'deskripsi',

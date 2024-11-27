@@ -5,11 +5,11 @@
     <div class="card-header">
         <h3 class="card-title">{{ $page->title }}</h3>
         <div class="card-tools">    
-            <a class="btn btn-sm btn-default ml-1" href="{{ url('cabor.index') }}"><i class="fas fa-arrow-left mr-2"></i> Kembali</a>
+            <a class="btn btn-sm btn-default ml-1" href="{{url('cabor') }}"><i class="fas fa-arrow-left mr-2"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
-        <form method="POST" action="{{ url('cabor.index') }}" class="form-horizontal">
+        <form method="POST" action="{{ url('cabor') }}" class="form-horizontal">
             @csrf
             <div class="form-group row">
                 <label class="col-2 control-label col-form-label">Kode Cabor</label>
