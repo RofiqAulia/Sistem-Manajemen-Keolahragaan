@@ -7,6 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\CaborController;
 use App\Http\Controllers\AtletController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,8 @@ use App\Http\Controllers\AtletController;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'dashboard']);
+Route::get('/', [LandingController::class, 'index'])->name('landing'); 
+
 
 Route::group(['prefix' => 'news', 'controller' => NewsController::class], function () {
     Route::get('/', 'index')->name('news.index');
@@ -80,4 +85,26 @@ Route::group(['prefix' => 'atlet', 'controller' => AtletController::class], func
     Route::get('/{id}/edit', 'edit')->name('atlet.edit');
     Route::put('/{id}', 'update')->name('atlet.update');
     Route::delete('/delete/{id}', 'destroy')->name('atlet.destroy');
+});
+
+Route::get('/', [LandingController::class, 'index'])->name('landing.index');
+
+
+// Landing Pages
+Route::get('/', [LandingController::class, 'index'])->name('home');
+Route::get('/events', [LandingController::class, 'events'])->name('events');
+Route::get('/events/{id}', [LandingController::class, 'event'])->name('event.show'); 
+Route::get('/news', [LandingController::class, 'news'])->name('news');
+Route::get('/news/{id}', [LandingController::class, 'news'])->name('news.show');
+Route::get('/cabor/{kode}', [LandingController::class, 'cabor'])->name('cabor.show');
+
+// Auth Routes
+Route::middleware(['auth'])->group(function () {
+    // Event Booking
+    Route::get('/booking/{category}', [BookingController::class, 'create'])->name('ticket.book');
+    Route::post('/booking', [BookingController::class, 'store'])->name('ticket.store');
+    Route::get('/booking/history', [BookingController::class, 'history'])->name('booking.history');
+    Route::get('/booking/{booking}/payment', [BookingController::class, 'payment'])->name('booking.payment');
+    Route::post('/booking/{booking}/pay', [BookingController::class, 'processPayment'])->name('booking.process-payment');
+
 });

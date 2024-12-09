@@ -6,20 +6,26 @@
             <!-- Dashboard Section -->
             <li class="nav-header">Dashboard</li>
             <li class="nav-item">
-                <a href="#">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>Dashboard</p>
-                </a>
+            <a href="{{ route('home') }}">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>Dashboard</p>
+            </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('landing.index') }}" target="_blank" class="nav-link {{ request()->routeIs('landing.index') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>Landing Page</p>
+                </a>
+             </li>
 
             <!-- News Section -->
             <li class="nav-header">News</li>
             <li class="nav-item">
-                <a href="{{ route('news.index') }}" class="nav-link {{ (request()->routeIs('news.index')) ? 'active' : '' }}">
+                <a href="#">
                     <i class="nav-icon fas fa-newspaper"></i>
                     <p>Data News</p>
                 </a>
-            </li> 
+            </li>
 
             <!-- Data Anggota Section -->
             <li class="nav-header">Data Manajemen Olahraga</li>
@@ -31,19 +37,19 @@
             </li> 
             <li class="nav-item">
                 <a href="#">
-                    <i class="nav-icon fas fa-users-cog"></i>
+                    {{-- <i class="nav-icon fas fa-users-cog"></i> --}}
                     <p>Data Pengurus</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('cabor.index') }}" class="nav-link {{ (request()->routeIs('cabor.index')) ? 'active' : '' }}">
-                    <i class="nav-icon fa fa-futbol-o"></i>
+                    <i class="nav-icon fas fa-users-cog"></i>
                     <p>Data Cabang Olahraga</p>
                 </a>
             </li>            
 
             <!-- Data Anggota Section -->
-            <li class="nav-header">Daftar Pelaporan</li>
+            {{-- <li class="nav-header">Daftar Pelaporan</li>
             <li class="nav-item">
                 <a href="#">
                     <i class="nav-icon fas fa-trophy"></i>
@@ -61,7 +67,7 @@
                     <i class="nav-icon fas fa-trophy"></i>
                     <p>Daftar Event</p>
                 </a>
-            </li>
+            </li> --}}
 
             <!-- Profile Section -->
             <li class="nav-header">Profile</li>
